@@ -13,21 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+       
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -38,16 +24,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -56,10 +32,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  bool _FirstImage = true;
+  bool _FirstImage = true; //boolean for the image toggles
 
-  String firstImage = "https://mario.nintendo.com/static/f350c31adcd6378b913f7660db299714/7e15c/mario.png";
-  String secondImage = "https://static.wikia.nocookie.net/pure-good-wiki/images/7/72/MPSS_Luigi.png/revision/latest?cb=20240906131229";
+    //sources for the images
+  String firstImage = "https://upload.wikimedia.org/wikipedia/en/5/5c/Mario_by_Shigehisa_Nakaue.png";
+  String secondImage = "https://mario.wiki.gallery/images/thumb/8/89/MPS_Toad_Artwork.png/170px-MPS_Toad_Artwork.png";
 
   void _incrementCounter() {
     setState(() {
@@ -68,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _toggleImage(){
-    setState(() {
+    setState(() { //toggles for the images
       _FirstImage = !_FirstImage;
     });
   }
@@ -93,14 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 20),
 
-            Image.network(
+            Image.network( //for the images
               _FirstImage ? firstImage : secondImage,
               width: 150,
               height: 150,
             ),
 
             const SizedBox(height: 10),
-
+            //button for the toggle
             ElevatedButton(onPressed: _toggleImage, child: const Text('Toggle Image')
             ),
           ],
